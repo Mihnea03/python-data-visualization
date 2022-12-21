@@ -3,6 +3,9 @@ from PySide6.QtCore import Qt
 import pandautil
 
 def add_layout():
+    def search_by_name():
+        pandautil.search_by_name(name_input.toPlainText())
+        
     name_label = QLabel("Enter name:")
     name_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
     name_label.setFixedHeight(20)
@@ -10,7 +13,7 @@ def add_layout():
     name_input.setFixedHeight(30)
     
     name_button = QPushButton("See all users with given name")
-    name_button.clicked.connect()
+    name_button.clicked.connect(search_by_name)
     
     date_button = QPushButton("See birthdates stats")   
     opinion_button = QPushButton("See Yes/No stats") 
