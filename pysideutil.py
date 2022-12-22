@@ -6,17 +6,28 @@ def add_layout():
     def search_by_name():
         pandautil.search_by_name(name_input.toPlainText())
         
+    def search_by_date():
+        pandautil.search_by_age()
+    
+    def search_by_opinion():
+        pandautil.search_by_opinion()
+        
     name_label = QLabel("Enter name:")
     name_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
     name_label.setFixedHeight(20)
     name_input = QPlainTextEdit()
     name_input.setFixedHeight(30)
+    name_input.setMaximumBlockCount(1)
     
     name_button = QPushButton("See all users with given name")
     name_button.clicked.connect(search_by_name)
     
     date_button = QPushButton("See birthdates stats")   
+    date_button.clicked.connect(search_by_date)
+    
     opinion_button = QPushButton("See Yes/No stats") 
+    opinion_button.clicked.connect(search_by_opinion)
+    
     layout = QVBoxLayout()
     layout.addWidget(name_label)
     layout.addWidget(name_input)
